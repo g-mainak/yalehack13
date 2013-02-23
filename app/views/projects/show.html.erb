@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+Project Name<%= @project.project_name %>
+ by <%= @project.founder_name %>
+Looking for <%= @project.looking_for %>
+Description<%= @project.description %>
+Its rated <%= @project.rating %>
+and <%= pluralize(@project.consider, "person") %> are considering it.
+
+<h3><%= pluralize(@comments.count, "Comment") %> for <%= @project.project_name %> </h3>
+<ol class="comments">
+	<%= render @comments %>
+</ol>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

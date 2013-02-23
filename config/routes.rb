@@ -1,4 +1,11 @@
 Yalehack13::Application.routes.draw do
+
+  resources :templates
+
+
+  resources :users
+  resources :projects
+  resources :comments
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
