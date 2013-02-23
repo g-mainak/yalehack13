@@ -1,3 +1,7 @@
 class Project < ActiveRecord::Base
-  # attr_accessible :title, :body
+	has_many :comments
+	
+	attr_accessible :project_name, :founder_name, 
+	:looking_for, :description, :rating, :consider
+
 end
