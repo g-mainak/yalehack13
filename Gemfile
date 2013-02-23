@@ -6,6 +6,10 @@ gem 'rails', '3.2.12'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'omniauth-facebook'
+gem 'bootstrap-sass'
+gem 'bcrypt-ruby', '3.0.1'
+gem 'jquery-rails', '2.0.2'
 
 
 # Gems used only for assets and not required
@@ -20,7 +24,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

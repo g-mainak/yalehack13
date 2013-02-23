@@ -1,4 +1,11 @@
 Yalehack13::Application.routes.draw do
+
+  root :to => 'static_pages#home'
+
+  get   '/login', :to => 'sessions#new', :as => :login
+  match '/auth/:provider/callback', :to => 'sessions#create'
+  match '/auth/failure', :to => 'sessions#failure'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
