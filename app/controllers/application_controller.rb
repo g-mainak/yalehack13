@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
 	  	@current_user ||= User.find(session[:user_id]) if session[:user_id]
 	  	rescue ActiveRecord::RecordNotFound # fixed lost record
 	end
+
+	def promote
+    Project.increment_counter(:rating, params[:id])
+  end
 end

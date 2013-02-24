@@ -3,7 +3,7 @@ Yalehack13::Application.routes.draw do
   resources :projects
   resources :comments
 
-  get   '/login', :to => 'sessions#new', :as => :login
+  get '/login', :to => 'sessions#new', :as => :login
   put "project/:project_id/" => "project#incHelpful"
   
   match '/auth/:provider/callback', :to => 'sessions#create'
@@ -11,6 +11,7 @@ Yalehack13::Application.routes.draw do
   match '/comments', :to => "comments#create"
   match '/projects/comment', :to => "projects#comment"
   match '/projects/:id/tweet', :to => 'projects#tweet'
+  match "/promote" => "projects#promote"
 
   root :to => 'static_pages#home'
   
