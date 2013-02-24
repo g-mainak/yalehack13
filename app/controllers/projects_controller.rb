@@ -15,6 +15,9 @@ end
   def show
   	@project = Project.find(params[:id])
     @comments = @project.comments
+    @new = Comment.new
+    @new.project_id = @project.id
+
 
   	respond_to do |format|
       format.html # show.html.erb
@@ -69,6 +72,18 @@ end
   		end
   	end
   end
+
+  def comment
+    @comment = Comment.new
+    @comment.project_id = params[:id].to_i
+    @comment.text = params[:input]
+    if @comment.save
+      redirect_to project_path(params[:id].to_i)
+    else
+      redirect_to project_path(params[:id].to_i), :flash => { :error => "Comment can't be left blank."}
+    end
+  end
+
 
   # DELETE /projects/1
   # DELETE /projects/1.json
