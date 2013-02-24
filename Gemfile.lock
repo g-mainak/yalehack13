@@ -87,6 +87,7 @@ GEM
     multi_json (1.6.1)
     multi_xml (0.5.3)
     multipart-post (1.1.5)
+    net-ldap (0.3.1)
     oauth (0.4.7)
     oauth2 (0.8.1)
       faraday (~> 0.8)
@@ -186,6 +187,10 @@ DEPENDENCIES
   font-awesome-rails
   jquery-rails (= 2.0.2)
   koala
+<<<<<<< HEAD
+=======
+  net-ldap
+>>>>>>> 8f522f07c81f6868ae99ce195c732f6e5956d42a
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-twitter
@@ -195,7 +200,10 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   social-buttons!
   sqlite3
+<<<<<<< HEAD
   tweet-button
+=======
+>>>>>>> 8f522f07c81f6868ae99ce195c732f6e5956d42a
   twitter
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)

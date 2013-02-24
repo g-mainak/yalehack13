@@ -47,7 +47,7 @@ and <%= pluralize(@project.consider, "person") %> are considering it.
 <h3><%= pluralize(@comments.count, "Comment") %> for <%= @project.project_name %> </h3>
 <ol class="comments">
 <% @comments.each do |comment| %>
-	<li><%= comment.text %></li><br />
+	<li><%= simple_format(comment.text) %></li><br />
 <% end %>
 </ol>
 <p>New Comment:</p>
@@ -55,7 +55,7 @@ and <%= pluralize(@project.consider, "person") %> are considering it.
 <% if flash[:error] %>
 	<p><%= flash[:error] %></p>
 <% end %>
-	<%= f.text_field :text, :name => :input %>
+	<%= f.text_area :text, :rows => 5, :cols => 80, :name => :input %><br />
 	<%= hidden_field :project, :id , :name => :id%>
 	<%= f.submit %>
 <% end %>
