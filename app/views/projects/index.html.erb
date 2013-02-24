@@ -1,33 +1,40 @@
 <h1>Listing projects</h1>
 
-<table>
-  <tr>
-   <th>Project Name</th>
-   <th>Founder's Name</th>
-   <th>Looking For</th>
-   <th>Description</th>
-   <th>Rating</th>
-   <th>Number of people considering</th>
-   <th></th>
-   <th></th>
-   <th></th>
- </tr>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="projects span12">
+      <% @projects.each do |project| %>
+        <div class="project_panel span3">
+          <ul class="thumbnails">
+            <li class="">
+              <a href="#" class="thumbnail">
+                <img src= "http://www.eclipsewebmedia.com/wp-content/uploads/placeholdit.gif" alt="project pic" style="width: 300px; height: 200px"/>
+              </a>
 
- <% @projects.each do |project| %>
- <tr>
-  <td><%= project.project_name %></td>
-  <td><%= project.founder_name %></td>
-  <td><%= project.looking_for %></td>
-  <td><%= project.description %></td>
-  <td><%= project.rating %></td>
-  <td><%= project.consider %></td>
-  <td><%= link_to 'Show', project %></td>
-  <td><%= link_to 'Edit', edit_project_path(project) %></td>
-  <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-</tr>
-<% end %>
-</table>
+              <a id="share-twitter"/>
+                <i class="icon-twitter" style="float:right;"></i>
+              </a>
 
-<br />
+              <div class="caption">
+                <h3><%=link_to project.project_name , project %></h3>
+                <p> <%= project.description %> </p>
 
-<%= link_to 'New project', new_project_path %> 
+                <p>
+                  <%= link_to "Learn more", project, class: "btn btn-primary", style:"float:right;"  %>
+                </p>
+            </li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span4" style="background-color:white">
+    </div>
+  </div>
+</div>
+
+
+
+
