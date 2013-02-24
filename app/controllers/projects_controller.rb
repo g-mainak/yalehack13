@@ -10,6 +10,16 @@ class ProjectsController < ApplicationController
   end
 end
 
+  def incHelpful
+    unless params[:nonce] == session[:nonce][params[:id]]
+      @project = Project.find(params[:id])
+      @project.rating += 1
+      @project.update_attributes(:rating)
+      session[:nonce][params[:id]] = params[:nonce]
+    end
+    render :nothing
+  end
+
   # GET /projects/1
   # GET /projects/1.json
   def show

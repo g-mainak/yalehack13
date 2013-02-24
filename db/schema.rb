@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130224135913) do
+ActiveRecord::Schema.define(:version => 20130224162707) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(:version => 20130224135913) do
     t.text     "text"
     t.integer  "votes"
     t.integer  "project_id"
-    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
   create_table "projects", :force => true do |t|
@@ -37,9 +37,13 @@ ActiveRecord::Schema.define(:version => 20130224135913) do
     t.text     "description"
     t.integer  "rating"
     t.integer  "consider"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "photo"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "templates", :force => true do |t|
@@ -53,6 +57,8 @@ ActiveRecord::Schema.define(:version => 20130224135913) do
     t.string   "fb_id"
     t.text     "bio"
     t.text     "skills"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "provider"
     t.string   "uid"
     t.string   "remember_token"
@@ -61,8 +67,6 @@ ActiveRecord::Schema.define(:version => 20130224135913) do
     t.string   "fname"
     t.string   "lname"
     t.string   "college"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
   end
 
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
