@@ -9,14 +9,24 @@
 	    	<i class="icon-facebook fb_share" style="float:right;"></i>
 	    	<!--<%= facebook_share_once %>-->
 	    </a>
-	    <a>
+
+	   <% link = project_url(project) %>
+	   <%= link %>
+	   <% bitly_link = bitly.shorten("http://127.0.0.1:3000/projects/#{project.id}").short_url  %>
+	   <%= bitly_link %>
+
+	    <a id="share-twitter"/>
 	    	<i class="icon-twitter" style="float:right;"></i>
 	    </a>
+
+	    <%= custom_tweet_button('Tweet', {:text => "Check out my new project! #{bitly_link}", :via =>""}) %>
+
+
 	    <a>
 	    	<i class="icon-google-plus" style="float:right;"></i>
 	    </a>
 
-	    <%= link_to 'tweet', "projects/#{project.id}/tweet" %>
+
 	    <div class="caption">
 	    	<h3><%=link_to project.project_name , project %></h3>
 	    	<p> <%= project.description %> </p>
@@ -27,3 +37,22 @@
 	  </li>
 	</ul>
 </div>
+
+<script type="text/javascript">
+ $('.icon-twitter').click(function(event) {
+    var width  = 575,
+        height = 400,
+        left   = ($(window).width()  - width)  / 2,
+        top    = ($(window).height() - height) / 2,
+        url<%=project.id%> = "http://twitter.com/home?status=Check out my new project! <%= bitly_link %>",
+        opts   = 'status=1' +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
+
+    window.open(url<%=project.id%>, 'twitter', opts);
+
+    return false;
+  });
+ </script>
