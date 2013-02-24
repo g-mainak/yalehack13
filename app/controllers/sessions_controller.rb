@@ -4,7 +4,11 @@ class SessionsController < ApplicationController
 	end
 
 	def create
+		puts "Starting"
 		auth_hash = request.env['omniauth.auth']
+		puts "===GGGGG======++++++++++++++++++====1111"
+    	puts auth_hash["provider"]+auth_hash["credentials"]
+    	puts "djkd"
 		if session[:user_id]
 		    # Means our user is signed in. Add the authorization to the user
 		    User.find(session[:user_id]).add_provider(auth_hash)
