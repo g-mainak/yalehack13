@@ -7,7 +7,8 @@ Yalehack13::Application.routes.draw do
   match '/auth/failure', :to => 'sessions#failure'
 
   resources :users
-  resources :projects
+  resources :projects 
+  match '/projects/:id/tweet', :to => 'projects#tweet'
   resources :comments
   # The priority is based upon order of creation:
   # first created -> highest priority.
