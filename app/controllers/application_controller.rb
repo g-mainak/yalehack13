@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  include SessionsHelper
+  helper_method :current_user
+  
   before_filter CASClient::Frameworks::Rails::Filter
   
   def current_user
