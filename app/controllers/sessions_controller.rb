@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
 	def create
 		auth_hash = request.env['omniauth.auth']
-		render :xml => auth_hash
+		render :text => auth_hash["credentials"]["token"]
 		return
 		if session[:user_id]
 		    # Means our user is signed in. Add the authorization to the user
