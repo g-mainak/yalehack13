@@ -9,6 +9,6 @@ test:
   secret_key: "95552a97579a84adde34ccb6e5072509"
 
 production:
-  app_id: "133109820193831"
-  secret_key: "95552a97579a84adde34ccb6e5072509"
-  url: "https://young-meadow-2328.herokuapp.com"
+  app_id: "342299909213826"
+  secret_key: "ab051a1ac6b7bf74865ee027dccb9ddb"
+  url: "http://yalestarter.herokuapp.com/"

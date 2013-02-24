@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130224112841) do
+ActiveRecord::Schema.define(:version => 20130224162707) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -37,12 +37,13 @@ ActiveRecord::Schema.define(:version => 20130224112841) do
     t.text     "description"
     t.integer  "rating"
     t.integer  "consider"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
-    t.string   "picture_file_name"
-    t.string   "picture_content_type"
-    t.integer  "picture_file_size"
-    t.datetime "picture_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "photo"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "templates", :force => true do |t|
@@ -62,6 +63,10 @@ ActiveRecord::Schema.define(:version => 20130224112841) do
     t.string   "uid"
     t.string   "remember_token"
     t.string   "email"
+    t.integer  "year"
+    t.string   "fname"
+    t.string   "lname"
+    t.string   "college"
   end
 
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"

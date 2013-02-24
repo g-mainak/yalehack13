@@ -25,7 +25,7 @@ gem 'facebook_share'
 gem "twitter-bootstrap-rails"
 gem 'tweet-button'
 gem "social-buttons", git: "git://github.com/kristianmandrup/social-buttons.git"
-
+gem "paperclip", "~> 3.0"
 
 
 # Gems used only for assets and not required

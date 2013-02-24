@@ -10,9 +10,14 @@ class ProjectsController < ApplicationController
   end
 end
 
-  def self.promote
-    @project.rating = "1"
-    @project.save
+  def incHelpful
+    unless params[:nonce] == session[:nonce][params[:id]]
+      @project = Project.find(params[:id])
+      @project.rating += 1
+      @project.update_attributes(:rating)
+      session[:nonce][params[:id]] = params[:nonce]
+    end
+    render :nothing
   end
 
   # GET /projects/1
@@ -50,9 +55,16 @@ end
   # POST /projects.json
   def create
   	@project = Project.new(params[:project])
+    @project.photo = params[:photo].original_filename
+    directory = Rails.root.join('app', 'assets', 'images')
+    path = File.join(directory, @project.photo)
+    File.open(path, 'wb') do |f|
+      f.write(params[:photo].read)
+    end
+
 
   	respond_to do |format|
-  		if @project.save
+      if @project.save
   			format.html { redirect_to @project, notice: 'project was successfully created.' }
   			format.json { render json: @project, status: :created, location: @project }
   		else
