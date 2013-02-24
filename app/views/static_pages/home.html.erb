@@ -27,7 +27,7 @@
 	<%= form_tag("/search", :method => "get") do %>
 		<p>
 			<%= text_field_tag 'search' %>
-			<%= submit_tag "Search" %>
+			<%= submit_tag "Search", :class=>"btn btn-success" %>
 		</p>
 	<% end %>
 </div>
