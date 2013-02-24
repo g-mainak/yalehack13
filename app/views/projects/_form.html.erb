@@ -1,33 +1,36 @@
-<%= form_for(@project) do |f| %>
-<% if @project.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+<div class="row-fluid">
+  <div class="span6">
+    <%= form_for(@project) do |f| %>
+      <% if @project.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:
+        </h2>
 
-  <ul>
-    <% @project.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
+        <ul>
+          <% @project.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
 
-<div>
-  <%= f.label :project_name %>
-  <%= f.text_field :project_name %>
-  <br/>
-  <%= f.label :founder_name %>
-  <%= f.text_field :founder_name %>
-  <br/>
-  <%= f.label :looking_for %>
-  <%= f.text_field :looking_for %>
-  <br/>
-  <%= f.label :description%>
-  <%= f.text_area :description %>
-  <%= f.label "Picture"%>
-  <%= f.file_field :picture %>
-</div>
+     <div>
+        <%= f.label :project_name %>
+        <%= f.text_field :project_name %>
+        <br/>
+        <%= f.label :founder_name %>
+        <%= f.text_field :founder_name, :value => "#{User.find(2).name}" %>
+        <br/>
+        <%= f.label :looking_for %>
+        <%= f.text_field :looking_for, :placeholder => "programmer, consummate lover etc." %>
+        <br/>
+        <%= f.label :description%>
+        <%= f.text_area :description %>
+      </div>
 
-<div class="actions">
-  <%= f.submit %>
+      <div class="actions">
+        <%= f.submit class:"btn btn-primary" %>
+      </div>
+  </div>
 </div>
 <% end %>

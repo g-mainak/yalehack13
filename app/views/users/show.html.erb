@@ -5,8 +5,8 @@
 <h3>NetId: <%= @user.netid %></h2> <br/>
 <h3>Bio:    <%= @user.bio %></h2> <br/>
 <h3>Skillz:    <%= @user.skills %></h2> <br/>
-<h3>Email:    <%= @user.email %></h2> <br/>
+	<% if @user.email %>
+		<h3>Email:    <%= @user.email %></h2> <br/>
+	<% end %>
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
