@@ -9,8 +9,18 @@ and <%= pluralize(@project.consider, "person") %> are considering it.
 
 <h3><%= pluralize(@comments.count, "Comment") %> for <%= @project.project_name %> </h3>
 <ol class="comments">
-	<%= render @comments %>
+<% @comments.each do |comment| %>
+	<li><%= comment.text %></li><br />
+<% end %>
 </ol>
+
+<p>New Comment:</p>
+<%= form_for @new, :url => {:action => :comment} do |f| %>
+	<%= f.text_field :text, :name => :input %>
+	<%= hidden_field :project, :id , :name => :id%>
+	<%= f.submit %>
+<% end %>
+
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

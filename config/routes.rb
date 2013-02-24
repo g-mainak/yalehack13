@@ -5,10 +5,14 @@ Yalehack13::Application.routes.draw do
   get   '/login', :to => 'sessions#new', :as => :login
   match '/auth/:provider/callback', :to => 'sessions#create'
   match '/auth/failure', :to => 'sessions#failure'
+  match '/comments', :to => "comments#create"
+  match '/projects/comment', :to => "projects#comment"
 
   resources :users
   resources :projects
   resources :comments
+  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

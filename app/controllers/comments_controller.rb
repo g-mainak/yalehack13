@@ -8,14 +8,14 @@ class CommentsController < ApplicationController
   	@comment = Comment.new
   end
 
-  def create
-    @comment = current_user.comments.build(params[:comment])
+  def create #this is broken
+    @comment = @project.comments.build(params[:comment])
     if @comment.save
       flash[:success] = "comment created!"
-      redirect_to current_user
+      redirect_to :root
     else
 		flash[:error] = "Sorry! Something went wrong."
-      render new_comment_path
+      redirect_to :root
     end
   end
 end
