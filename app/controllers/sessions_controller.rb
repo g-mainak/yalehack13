@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 	def create
 		auth_hash = request.env['omniauth.auth']
 		auth_hash.each do |key, array|
-  			str = str + key + ":" + array ";\n"
+  			str = str + key + ":" + array +";\n"
 		end
 		render :text => str
 		return
