@@ -9,12 +9,15 @@ gem 'sqlite3'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem "omniauth-google-oauth2"
-
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'jquery-rails', '2.0.2'
 gem "font-awesome-rails"
 gem 'rubycas-client'
+gem 'koala'
+gem 'facebook_share'
+gem "twitter-bootstrap-rails"
+gem "social-buttons", git: "git://github.com/kristianmandrup/social-buttons.git"
 
 
 

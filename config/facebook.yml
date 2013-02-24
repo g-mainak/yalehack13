@@ -1,0 +1,14 @@
+# config/facebook.yml
+development:
+  app_id: "133109820193831"
+  secret_key: "95552a97579a84adde34ccb6e5072509"
+  url: "http://localhost:3000/"
+
+test:
+  app_id: "133109820193831"
+  secret_key: "95552a97579a84adde34ccb6e5072509"
+
+production:
+  app_id: "133109820193831"
+  secret_key: "95552a97579a84adde34ccb6e5072509"
+  url: "https://young-meadow-2328.herokuapp.com"

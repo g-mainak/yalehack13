@@ -1,6 +1,43 @@
 <p id="notice"><%= notice %></p>
+<h1 id="project_name"><%= @project.project_name %></h1>
 
-Project Name<%= @project.project_name %>
+<div class="row-fluid">
+	<div class="span10">
+		<img src="<%= asset_path('larry.jpg') %>"/>
+	</div>
+</div>
+
+
+
+
+
+  <!-- Carousel nav -->
+  <!--
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>-->
+
+<h2 id="desc-title">Description</h2>
+<div class="row-fluid">
+	<div class="span4">
+		<div class="well desc">
+			<p>
+				<%= @project.description %>
+			</p>
+		</div>
+		<%= like_button(133109820193831) %>
+		<a href="#" class="btn btn-primary" style="float:right">Apply now!</a>
+	</div>
+</div>
+
+<script>
+	$('.carousel').carousel('cycle')
+</script>
+
+
+
+
+
+<!--Project Name<%= @project.project_name %>
  by <%= @project.founder_name %>
 Looking for <%= @project.looking_for %>
 Description<%= @project.description %>
@@ -13,4 +50,4 @@ and <%= pluralize(@project.consider, "person") %> are considering it.
 </ol>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<%= link_to 'Back', projects_path %>-->
