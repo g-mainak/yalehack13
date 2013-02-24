@@ -128,6 +128,12 @@ end
     )
     Thread.new{client.update("Tweeting from app!")}
   end
+
+  def promote
+    Project.increment_counter(:rating, params[:id])
+    flash[:success] = "Thanks for voting!"
+    redirect_to :back
+  end
 end
 
 
