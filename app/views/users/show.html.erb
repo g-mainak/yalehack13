@@ -1,5 +1,5 @@
 <h1><%= @user.name %></h1>
-<% if @user.authorizations.find_by_provider("facebook").uid %>
+<% if @user.authorizations.find_by_provider("facebook") %>
 	<%= image_tag("http://graph.facebook.com/"+ @user.authorizations.find_by_provider("facebook").uid+"/picture?type=large") %>
 <% end %>
 <br/>
