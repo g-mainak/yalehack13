@@ -96,6 +96,16 @@ end
   		format.json { head :no_content }
   	end
   end
+
+  def tweet
+    @tuid = current_user.authorizations.find_by_provider("twitter").uid.split(",", 4)
+
+    client = Twitter::Client.new(
+      :oauth_token => "Erik's access token",
+      :oauth_token_secret => "Erik's access secret"
+    )
+    Thread.new{client.update("Tweeting from app!")}
+  end
 end
 
 
