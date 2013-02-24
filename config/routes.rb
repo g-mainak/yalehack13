@@ -9,7 +9,8 @@ Yalehack13::Application.routes.draw do
   match '/projects/comment', :to => "projects#comment"
 
   resources :users
-  resources :projects
+  resources :projects 
+  match '/projects/:id/tweet', :to => 'projects#tweet'
   resources :comments
   
 

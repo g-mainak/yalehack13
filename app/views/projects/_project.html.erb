@@ -12,12 +12,11 @@
 	    <a>
 	    	<i class="icon-twitter" style="float:right;"></i>
 	    </a>
-
 	    <a>
 	    	<i class="icon-google-plus" style="float:right;"></i>
 	    </a>
 
-
+	    <%= link_to 'tweet', "projects/#{project.id}/tweet" %>
 	    <div class="caption">
 	    	<h3><%=link_to project.project_name , project %></h3>
 	    	<p> <%= project.description %> </p>
