@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 # require 'net/ldap'
 
 	has_many :comments
-	attr_accessible :name, :netid, :bio, :skills, :email
+	attr_accessible :name, :netid, :bio, :skills, :email, :uid
 	
 
 	has_many :authorizations
@@ -94,6 +94,5 @@ class User < ActiveRecord::Base
  #    self.lname = name[1].downcase || ''
  #    self.save
  #  end
->>>>>>> 8f522f07c81f6868ae99ce195c732f6e5956d42a
 end
 

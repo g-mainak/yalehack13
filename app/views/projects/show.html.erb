@@ -14,7 +14,7 @@
   <h2 id="desc-title">Description</h2>
   <div class="row-fluid">
   	<div class="span4">
-  		<div class="well desc">
+  		<div class="desc">
   			<p>
   				<%= @project.description %>
   			</p>
@@ -27,32 +27,26 @@
   $('.carousel').carousel('cycle')
   </script>
 
-<div>
+<% if @project.comments.any? %>
 	<div>
-		<h3><%= pluralize(@comments.count, "Comment") %> for <%= @project.project_name %> </h3>
-		<ol class="comments span12">
-			<% @comments.each do |comment| %>
-				<li><%= comment.text %> by <%= comment.user.name %></li><br />
+		<div>
+			<h3><%= pluralize(@comments.count, "Comment") %> for <%= @project.project_name %> </h3>
+			<ol class="comments span12">
+				<% @comments.each do |comment| %>
+					<li><%= comment.text %> by <%= comment.user.name %></li><br />
+				<% end %>
+			</ol>
+		</div>
+		<div>
+<% end %>
+			<p>New Comment:</p>
+			<%= form_for @new, :url => {:action => :comment} do |f| %>
+				<% if flash[:error] %>
+					<p><%= flash[:error] %></p>
+				<% end %>
+				<%= f.text_area :text, :rows => 5, :cols => 80, :name => :input %><br />
+				<%= hidden_field :project, :id , :name => :id%>
+				<%= f.submit class:"btn btn-primary" %>
 			<% end %>
-		</ol>
+		</div>
 	</div>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<div>
-		<p>New Comment:</p>
-		<%= form_for @new, :url => {:action => :comment} do |f| %>
-			<% if flash[:error] %>
-				<p><%= flash[:error] %></p>
-			<% end %>
-			<%= f.text_area :text, :rows => 5, :cols => 80, :name => :input %><br />
-			<%= hidden_field :project, :id , :name => :id%>
-			<%= f.submit %>
-		<% end %>
-	</div>
-</div>
-
-
-  <%= link_to 'Edit', edit_project_path(@project) %> |
-  <%= link_to 'Back', projects_path %>

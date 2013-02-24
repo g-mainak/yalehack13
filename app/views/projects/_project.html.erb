@@ -5,28 +5,23 @@
 	      <img src= "http://www.eclipsewebmedia.com/wp-content/uploads/placeholdit.gif" alt="project pic" style="width: 300px; height: 200px"  >
 	    </a>
 	    
-	    <a href=" http://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost:3000/projects/+<%=project.id%>, :target => :blank">
+	    <a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost:3000/projects/+<%=project.id%>, :target => :blank">
 	    	<i class="icon-facebook fb_share" style="float:right;"></i>
 	    	<!--<%= facebook_share_once %>-->
 	    </a>
 
 	   <% link = project_url(project) %>
-	   <%= link %>
 	   <% bitly_link = bitly.shorten("http://127.0.0.1:3000/projects/#{project.id}").short_url  %>
-	   <%= bitly_link %>
 
 	    <a id="share-twitter"/>
 	    	<i class="icon-twitter" style="float:right;"></i>
 	    </a>
 
-	    <%= custom_tweet_button('Tweet', {:text => "Check out my new project! #{bitly_link}", :via =>""}) %>
-
-
-	    <a>
-	    	<i class="icon-google-plus" style="float:right;"></i>
+	    <a id="promote" href="#" controller="project", action = "promote">
+	    	<i class="icon-star" style="float:right;"></i>
 	    </a>
 
-
+	    <!--<%= custom_tweet_button('Tweet', {:text => "Check out my new project! #{bitly_link}", :via =>""}) %>-->
 	    <div class="caption">
 	    	<h3><%=link_to project.project_name , project %></h3>
 	    	<p> <%= project.description %> </p>
