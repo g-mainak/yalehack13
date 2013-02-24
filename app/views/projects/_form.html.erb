@@ -14,12 +14,12 @@
       </div>
       <% end %>
 
-      <div>
+     <div>
         <%= f.label :project_name %>
         <%= f.text_field :project_name %>
         <br/>
         <%= f.label :founder_name %>
-        <%= f.text_field :founder_name, :value => "#{User.find(2).name}" %>
+        <%= f.text_field :founder_name, :value => "#{current_user.name}" %>
         <br/>
         <%= f.label :looking_for %>
         <%= f.text_field :looking_for, :placeholder => "programmer, consummate lover etc." %>
