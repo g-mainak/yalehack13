@@ -75,6 +75,7 @@ end
 
   def comment
     @comment = Comment.new
+    @comment.user = current_user
     @comment.project_id = params[:id].to_i
     @comment.text = params[:input]
     if @comment.save
