@@ -1,4 +1,11 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @user.name %></h1>
+
+<%= image_tag("http://graph.facebook.com/"+ @user.authorizations.find_by_provider("facebook").uid+"/picture?type=large") %>
+<br/>
+<h3>NetId: <%= @user.netid %></h2> <br/>
+<h3>Bio:    <%= @user.bio %></h2> <br/>
+<h3>Skillz:    <%= @user.skills %></h2> <br/>
+<h3>Email:    <%= @user.email %></h2> <br/>
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
