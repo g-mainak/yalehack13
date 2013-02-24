@@ -1,8 +1,8 @@
 <div class="project_panel span3">
 	<ul class="thumbnails">
 	  <li class="">
-	    <a href="#" class="thumbnail">
-	      <img src= "http://www.eclipsewebmedia.com/wp-content/uploads/placeholdit.gif" alt="project pic" style="width: 300px; height: 200px"  >
+	    <a href="<%= project_url(project) %>" class="thumbnail">
+	      <img src= "<%= asset_path(project.photo) %>" alt="project pic" style="width: 300px; height: 200px"  >
 	    </a>
 	    
 	    <a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost:3000/projects/+<%=project.id%>, :target => :blank">

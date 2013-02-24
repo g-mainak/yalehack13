@@ -12,6 +12,7 @@ Yalehack13::Application.routes.draw do
   match '/projects/comment', :to => "projects#comment"
   match '/projects/:id/tweet', :to => 'projects#tweet'
   match "/promote" => "projects#promote"
+  match '/search', :to => 'static_pages#search'
 
   root :to => 'static_pages#home'
   
