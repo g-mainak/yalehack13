@@ -187,10 +187,7 @@ DEPENDENCIES
   font-awesome-rails
   jquery-rails (= 2.0.2)
   koala
-<<<<<<< HEAD
-=======
   net-ldap
->>>>>>> 8f522f07c81f6868ae99ce195c732f6e5956d42a
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-twitter
@@ -200,10 +197,7 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   social-buttons!
   sqlite3
-<<<<<<< HEAD
   tweet-button
-=======
->>>>>>> 8f522f07c81f6868ae99ce195c732f6e5956d42a
   twitter
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
