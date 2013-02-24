@@ -1,27 +1,30 @@
 class SessionsController < ApplicationController
-  def new
-	  redirect_to '/auth/:provider'
+	def new
+		redirect_to '/auth/:provider'
 	end
 
-  def create
-	  auth_facebook = request.env["omniauth.auth"]
-	  user = User.find_by_provider_and_uid(auth_facebook["provider"], auth_facebook["uid"]) || User.create_with_omniauth(auth_facebook)
-
-	  session[:user_id] = user.id
-		redirect_to root_url, :alert => "Signed in!"		#root_url
+	def create
+		auth_hash = request.env['omniauth.auth']
+		if session[:user_id]
+		    # Means our user is signed in. Add the authorization to the user
+		    User.find(session[:user_id]).add_provider(auth_hash)
+		    redirect_to root_url, :alert => "You can now login using #{auth_hash["provider"].capitalize} too!"
+		else
+		    # Log him in or sign him up
+		    auth = Authorization.find_or_create(auth_hash)
+		    # Create the session
+		    session[:user_id] = auth.user.id
+		    redirect_to root_url, :alert => "Welcome #{auth.user.name}!"		#root_url
+		end
 	end
 
-  def failure
-	  redirect_to root_url, :alert => "Authentication error: #{params[:message].humanize}"
+	def failure
+		redirect_to root_url, :alert => "Authentication error: #{params[:message].humanize}"
 	end
 
-  def destroy
-	  reset_session
-	  redirect_to root_url, :notice => 'Signed out!'
-	end
-
-	def find_by_provider_and_uid(provider, uid)
-	  where(provider: provider, uid: uid).first
+	def destroy
+		reset_session
+		redirect_to root_url, :notice => 'Signed out!'
 	end
 
 end

@@ -7,6 +7,9 @@ gem 'rails', '3.2.12'
 
 gem 'sqlite3'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem "omniauth-google-oauth2"
+
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'jquery-rails', '2.0.2'
