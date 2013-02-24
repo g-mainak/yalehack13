@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130223232305) do
+ActiveRecord::Schema.define(:version => 20130223232527) do
 
   create_table "comments", :force => true do |t|
     t.text     "text"
@@ -44,10 +44,13 @@ ActiveRecord::Schema.define(:version => 20130223232305) do
     t.string   "fb_id"
     t.text     "bio"
     t.text     "skills"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "provider"
     t.string   "uid"
+    t.string   "remember_token"
   end
+
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end
