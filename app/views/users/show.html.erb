@@ -1,6 +1,7 @@
 <h1><%= @user.name %></h1>
-
-<%= image_tag("http://graph.facebook.com/"+ @user.authorizations.find_by_provider("facebook").uid+"/picture?type=large") %>
+<% if @user.authorizations.find_by_provider("facebook").uid %>
+	<%= image_tag("http://graph.facebook.com/"+ @user.authorizations.find_by_provider("facebook").uid+"/picture?type=large") %>
+<% end %>
 <br/>
 <h3>NetId: <%= @user.netid %></h2> <br/>
 <h3>Bio:    <%= @user.bio %></h2> <br/>
