@@ -175,8 +175,8 @@ DEPENDENCIES
   facebook_share
   font-awesome-rails
   jquery-rails (= 2.0.2)
-  net-ldap
   koala
+  net-ldap
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-twitter
