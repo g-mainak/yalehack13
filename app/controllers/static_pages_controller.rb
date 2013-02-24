@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
 	
 	def home
-		@projects = Project.all
+		@projects = Project.all(:limit => 3)
 		u = User.all
 		puts "=============="
 		puts u
