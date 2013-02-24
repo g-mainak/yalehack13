@@ -1,17 +1,19 @@
 Yalehack13::Application.routes.draw do
-
-  root :to => 'static_pages#home'
+  resources :users
+  resources :projects
+  resources :comments
 
   get   '/login', :to => 'sessions#new', :as => :login
+  put "project/:project_id/" => "project#incHelpful"
+  
   match '/auth/:provider/callback', :to => 'sessions#create'
   match '/auth/failure', :to => 'sessions#failure'
   match '/comments', :to => "comments#create"
   match '/projects/comment', :to => "projects#comment"
-
-  resources :users
-  resources :projects 
   match '/projects/:id/tweet', :to => 'projects#tweet'
-  resources :comments
+
+  root :to => 'static_pages#home'
+  
   
 
   # The priority is based upon order of creation:

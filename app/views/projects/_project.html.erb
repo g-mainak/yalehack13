@@ -21,6 +21,8 @@
 	    	<i class="icon-star" style="float:right;"></i>
 	    </a>
 
+	    <%= link_to 'Vote', project_url(project)+"?nonce=#{SecureRandom.hex(16)}", :method => :put, :remote => true %>
+
 	    <!--<%= custom_tweet_button('Tweet', {:text => "Check out my new project! #{bitly_link}", :via =>""}) %>-->
 	    <div class="caption">
 	    	<h3><%=link_to project.project_name , project %></h3>
@@ -34,7 +36,8 @@
 </div>
 
 <script type="text/javascript">
- $('.icon-twitter').click(function(event) {
+$(document).ready(function() {
+ 	$('.icon-twitter').click(function(event) {
     var width  = 575,
         height = 400,
         left   = ($(window).width()  - width)  / 2,
@@ -50,4 +53,27 @@
 
     return false;
   });
+
+ $('.icon-facebook').click(function(event) {
+    var width  = 575,
+        height = 400,
+        left   = ($(window).width()  - width)  / 2,
+        top    = ($(window).height() - height) / 2,
+        url = "http://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost:3000/projects/+<%=project.id%>, :target => :blank",
+        opts   = 'status=1' +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
+
+    window.open(url, 'facebook', opts);
+
+    return false;
+  });
+
+	$('.icon-facebook').bind('ajax:complete', function(event, data){
+		
+	}); 
+
+}); 
  </script>

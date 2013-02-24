@@ -10,9 +10,14 @@ class ProjectsController < ApplicationController
   end
 end
 
-  def self.promote
-    @project.rating = "1"
-    @project.save
+  def incHelpful
+    unless params[:nonce] == session[:nonce][params[:id]]
+      @project = Project.find(params[:id])
+      @project.rating += 1
+      @project.update_attributes(:rating)
+      session[:nonce][params[:id]] = params[:nonce]
+    end
+    render :nothing
   end
 
   # GET /projects/1
