@@ -63,7 +63,7 @@ end
         f.write(params[:photo].read)
       end
     else
-      @project.photo = 'missing.JPG'
+      @project.photo = 'noimage.jpg'
     end
 
 
