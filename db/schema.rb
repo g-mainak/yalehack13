@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20130224015924) do
     t.string   "provider"
     t.string   "uid"
     t.string   "remember_token"
+    t.string   "email"
   end
 
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"

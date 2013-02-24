@@ -1,2 +1,18 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
+@import "font-awesome";
+
+.project_panel {
+	display: inline-block;
+	margin: 20px;
+}
+
+i:hover {
+	color: #0044cc;
+	text-decoration: none;
+}
+
+.projects {
+	margin: 0 auto;
+}
+
