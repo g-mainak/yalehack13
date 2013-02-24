@@ -11,6 +11,8 @@ gem 'bootstrap-sass'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'jquery-rails', '2.0.2'
 gem "font-awesome-rails"
+gem 'rubycas-client'
+
 
 
 # Gems used only for assets and not required
