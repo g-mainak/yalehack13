@@ -13,7 +13,6 @@
 	   <% link = project_url(project) %>
 	   <% bitly_link = bitly.shorten("http://127.0.0.1:3000/projects/#{project.id}").short_url  %>
 
-	   <%= link_to "promote", promote_path(:id => project.id) %>
 	    <a id="share-twitter"/>
 	    	<i class="icon-twitter" style="float:right;"></i>
 	    </a>
