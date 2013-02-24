@@ -17,4 +17,9 @@ class StaticPagesController < ApplicationController
 		puts "++++++++++++++"
 		puts  u.id
 	end
+
+
+	def search
+		@projects = Project.search(params[:search])
+	end
 end
