@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/kristianmandrup/social-buttons.git
+  revision: 7d0ef2c5f63939336b1e30629084e68360ce3f87
+  specs:
+    social-buttons (0.3.7)
+      rails (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -28,6 +35,7 @@ GEM
     activesupport (3.2.12)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    addressable (2.3.3)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
@@ -43,6 +51,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    facebook_share (0.0.6)
     faraday (0.8.5)
       multipart-post (~> 1.1)
     font-awesome-rails (3.0.2.0)
@@ -58,6 +67,10 @@ GEM
     json (1.7.7)
     jwt (0.1.5)
       multi_json (>= 1.0)
+    koala (1.6.0)
+      addressable (~> 2.2)
+      faraday (~> 0.8)
+      multi_json (~> 1.3)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -125,6 +138,7 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    simple_oauth (0.2.0)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -137,6 +151,14 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
+    twitter (4.5.0)
+      faraday (~> 0.8, < 0.10)
+      multi_json (~> 1.0)
+      simple_oauth (~> 0.2)
+    twitter-bootstrap-rails (2.2.3)
+      actionpack (>= 3.1)
+      execjs
+      railties (>= 3.1)
     tzinfo (0.3.35)
     uglifier (1.3.0)
       execjs (>= 0.3.0)
@@ -150,9 +172,11 @@ DEPENDENCIES
   bcrypt-ruby (= 3.0.1)
   bootstrap-sass
   coffee-rails (~> 3.2.1)
+  facebook_share
   font-awesome-rails
   jquery-rails (= 2.0.2)
   net-ldap
+  koala
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-twitter
@@ -160,5 +184,8 @@ DEPENDENCIES
   rails (= 3.2.12)
   rubycas-client
   sass-rails (~> 3.2.3)
+  social-buttons!
   sqlite3
+  twitter
+  twitter-bootstrap-rails
   uglifier (>= 1.0.3)

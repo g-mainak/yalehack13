@@ -7,6 +7,10 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 	provider :google_oauth2, "869922471469.apps.googleusercontent.com", "xzbq2hnyF_fVtHLnBrfRIIjC"
 end
 
+Twitter.configure do |config|
+  config.consumer_key = "5I8FbbvjZGNd6wsMqi77A"
+  config.consumer_secret = "XQPmQ9mCJqWRRN2VldGFBvxzswcqpp1JZz9ZTDXTs"
+end
 
 
 #Rails.application.config.middleware.use OmniAuth::Builder do

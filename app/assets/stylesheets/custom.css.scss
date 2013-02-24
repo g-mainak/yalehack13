@@ -2,6 +2,62 @@
 @import "bootstrap-responsive";
 @import "font-awesome";
 
+ /* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.7em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $grayLight;
+}
+
+h4 {
+  margin-bottom:30px;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
 .project_panel {
 	display: inline-block;
 	margin: 20px;
@@ -16,3 +72,37 @@ i:hover {
 	margin: 0 auto;
 }
 
+#project_name {
+	text-align: left;
+}
+
+.carousel-img {
+  width: 600px;
+  height: 400px;
+}
+
+img {
+  display: block;
+}
+
+.carousel-indicators li {
+  display: block;
+  float: left;
+  width: 10px;
+  height: 10px;
+  margin-left: 5px;
+  text-indent: -999px;
+  /*background-color: #000000;
+  background-color: rgba(255, 255, 255, 0.25);*/
+  border-radius: 5px;
+}
+
+.desc {
+  display: block;
+  padding: 4px 2px;
+}
+
+#desc-title {
+  margin-top: 30px;
+  text-align: left;
+}

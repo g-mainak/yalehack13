@@ -1,17 +1,16 @@
 <div class="center hero-unit">
-	<h1>YaleStarter</h1>
+	<h1 style="text-align: left">YaleStarter</h1>
 
-	<p>
-		Find and join an amazing project or 
+	<p style="text-align: left">
+		Disover and join an amazing project or 
 		start your own now!
 	</p>
 
 	<%= link_to "Sign in with Facebook!", "/auth/facebook",
-	class: "btn btn-large btn-primary popup" %>
+	class: "btn btn-large btn-primary popup", style:"float:left; margin: 5px" %>
 	<%= link_to "Sign in with Twitter!", "/auth/twitter",
-	class: "btn btn-large btn-primary popup" %>
-	<%= link_to "Sign in with Google+!", "/auth/google_oauth2",
-	class: "btn btn-large btn-primary popup" %>
+	class: "btn btn-large btn-primary popup", style:"float:left; margin: 5px" %>
+	<%= link_to "Sign in with Google+!", "/auth/google_oauth2",class: "btn btn-large btn-primary popup", style:"float:left; margin: 5px" %>
 </div>
 
 <div class="container-fluid">
