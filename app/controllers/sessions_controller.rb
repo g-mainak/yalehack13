@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 		if session[:user_id]
 			# Means our user is signed in. Add the authorization to the user
 		    User.find(session[:user_id]).add_provider(auth_hash)
-		    session[:flashy] = User.find(session[:user_id]).authorizations.first
+		    User.find(session[:user_id]).update_attribute(auth_hash.info.name)
 		    if auth_hash.info.email
 		    	User.find(session[:user_id]).update_attribute(:email, auth_hash.info.email)
 		    end
@@ -16,7 +16,6 @@ class SessionsController < ApplicationController
 		    redirect_to root_url, :alert => "You can now login using #{auth_hash["provider"].capitalize} too!"
 		else
 		    # Log him in or sign him up
-		    session[:flashy] = "THEre"
 		    auth = Authorization.find_or_create(auth_hash)
 		    # Create the session
 		    session[:user_id] = auth.user.id

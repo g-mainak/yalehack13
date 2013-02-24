@@ -55,11 +55,15 @@ end
   # POST /projects.json
   def create
   	@project = Project.new(params[:project])
-    @project.photo = params[:photo].original_filename
-    directory = Rails.root.join('app', 'assets', 'images')
-    path = File.join(directory, @project.photo)
-    File.open(path, 'wb') do |f|
-      f.write(params[:photo].read)
+    if (params[:photo])
+      @project.photo = params[:photo].original_filename
+      directory = Rails.root.join('app', 'assets', 'images')
+      path = File.join(directory, @project.photo)
+      File.open(path, 'wb') do |f|
+        f.write(params[:photo].read)
+      end
+    else
+      @project.photo = 'missing.JPG'
     end
 
 
