@@ -1,6 +1,7 @@
 class Comment < ActiveRecord::Base
-	belongs_to :user
+	attr_accessible :text, :votes, :project_id	
+  belongs_to :user
 	belongs_to :project
 
-  attr_accessible :text, :votes, :project_id
+	validates :text, :presence => true
 end

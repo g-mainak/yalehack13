@@ -79,8 +79,9 @@ end
     @comment.text = params[:input]
     if @comment.save
       redirect_to project_path(params[:id].to_i)
+    else
+      redirect_to project_path(params[:id].to_i), :flash => { :error => "Comment can't be left blank."}
     end
-
   end
 
 

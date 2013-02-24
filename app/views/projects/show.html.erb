@@ -13,9 +13,11 @@ and <%= pluralize(@project.consider, "person") %> are considering it.
 	<li><%= comment.text %></li><br />
 <% end %>
 </ol>
-
 <p>New Comment:</p>
 <%= form_for @new, :url => {:action => :comment} do |f| %>
+<% if flash[:error] %>
+	<p><%= flash[:error] %></p>
+<% end %>
 	<%= f.text_field :text, :name => :input %>
 	<%= hidden_field :project, :id , :name => :id%>
 	<%= f.submit %>
