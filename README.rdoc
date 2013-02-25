@@ -1,5 +1,5 @@
 YaleStarter is a Rails application developed for the Yale 2nd Annual Hackathon. 
 
-YaleStarter set out to solve one problem: help individuals of the Yale community discover and create projects for collaboration with their peers. YaleStarter makes use of Twitter, Facebook, and Bit.ly to spread these projects across the web as a means of reaching the largest possible audience. Additionally, YaleStarter employs "promotion" functionality sot hat the three most popular projects will move to the front of the web page.
+YaleStarter set out to solve one problem: help individuals of the Yale community discover and create projects for collaboration with their peers. YaleStarter makes use of Twitter, Facebook, and Bit.ly to spread these projects across the web as a means of reaching the largest possible audience. Additionally, YaleStarter employs a "promotion" functionality so tbe three most popular projects will move to the front of the web page.
 
-YaleStarter was developed by Mainak Ghosh, Hugh O'Cinneide, and Brandon Smith
+YaleStarter was developed by Mainak Ghosh, Hugh O'Cinneide, and Brandon Smith in the 24-hour hackathon hosted by Yale BootUp.
