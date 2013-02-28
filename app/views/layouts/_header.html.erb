@@ -3,7 +3,14 @@
     <div class="container">
       <nav>
          <ul class="nav pull-left">
-          <li><%= link_to "Create project", new_project_path %></li>
+          <li>
+            <%= link_to "Create project", new_project_path %>
+          </li>
+          <li>
+            <form class="navbar-search pull-left" action="/search" method="get">
+              <input type="text" class="search-query"  placeholder="Search">
+            </form>
+          </li>
         </ul>
         <ul class="nav pull-right">
           <li><%= link_to "Home", root_path %></li> 

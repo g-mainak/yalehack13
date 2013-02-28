@@ -1,6 +1,7 @@
-<div align="center">
+<!--<div align="center">
 <%= link_to "Create your own project!", new_project_path, class: "btn btn-large btn-primary popup", style:"float:center;" %>
-</div>
+</div>-->
+<h1> Search Results </h1>
 
 <div class="container-fluid">
 	<div class="row-fluid">
@@ -9,12 +10,12 @@
 			<%= render @projects %>
 		</div>
 	</div>
-	<div align="center">
+	<!--<div align="center">
 	<%= form_tag("/search", :method => "get") do %>
 		<p>
 			<%= text_field_tag 'search' %>
-			<%= submit_tag "Search", %>
+			<%= submit_tag "Search" %>
 		</p>
 	<% end %>
-	</div>
+	</div>-->
 </div>
