@@ -102,7 +102,21 @@ img {
   padding: 4px 2px;
 }
 
+.part-desc {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 150px;
+  width: 200px;
+}
+
 #desc-title {
   margin-top: 30px;
   text-align: left;
+}
+
+.info {
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid black;
 }

@@ -19,6 +19,7 @@
 //= require twitter/bootstrap/bootstrap-button
 //= require twitter/bootstrap/bootstrap-collapse
 //= require twitter/bootstrap/bootstrap-carousel
+//= require jquery.haircut
 
 function popupCenter(url, width, height, name) {
   var left = (screen.width/2)-(width/2);

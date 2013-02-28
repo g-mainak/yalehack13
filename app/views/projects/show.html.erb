@@ -1,42 +1,29 @@
 <h1 id="project_name"><%= @project.project_name %></h1>
 
 <div class="row-fluid">
-	<div class="span8">
+	<div class="span6">
 		<img src="<%= asset_path(@project.photo) %>"/>
 	</div>
 
-	<h2>Info</h2>
-	<div class="span4" style="background-color:white">
+	<div class="span4 info">
+		<h2>Info</h2>
 		<div>
 			<h3>Founder: <%= @project.founder_name.capitalize %>
 			</h3>
 			<h3>
 				Looking For: <%= @project.looking_for.capitalize %> 
 			</h3>
+			<% if @project.consider %>
 			<h3>
-				Positions Available: <%= @project.consider %> 
+				Positions Available: <%= @project.consider %>
 			</h3>
+			<% end %>
 		</div>
 	</div>	
 </div>
 
-<!--
 
-<a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost:3000/projects/+<%=project.id%>, :target => :blank">
-	    	<i class="icon-facebook fb_share" style="float:right;"></i>
-	    	
-	    </a>
 
-<% bitly_link = bitly.shorten("http://127.0.0.1:3000/projects/#{project.id}").short_url  %>
-
-<a id="share-twitter"/>
-	    	<i class="icon-twitter" style="float:right;"></i>
-	    </a>
-
-	    <a href = "<%=promote_path(:id => project.id)%>">
-	    	<i class="icon-star" style="float:right;"></i>
-	    </a>
-	  -->
 
 <!-- Carousel nav -->
   <!--
@@ -48,9 +35,14 @@
   	<div class="span4">
   		<div class="desc">
   			<p>
-  				<%= @project.description %>
+  				<%= simple_format(@project.description) %>
   			</p>
   		</div>
+  		<div >
+		<a href = "<%=promote_path(:id => @project.id)%>">
+			<i class="icon-star" style="color: #FFE600;"></i>
+		</a>
+	</div>
   		<a href="#" class="btn btn-primary" style="float:right">Apply now!</a>
   	</div>
   </div>

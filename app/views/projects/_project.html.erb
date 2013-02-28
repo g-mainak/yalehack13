@@ -7,10 +7,13 @@
 	    
 	   <% link = project_url(project) %>
 	  
-	    <!--<%= custom_tweet_button('Tweet', {:text => "Check out my new project! #{bitly_link}", :via =>""}) %>-->
 	    <div class="caption">
-	    	<h3><%=link_to project.project_name , project %></h3>
-	    	<p> <%= project.description %> </p>
+	    	<h3>
+	    		<%=link_to project.project_name , project %>
+	    	</h3>
+
+	    	<div title="<%= project.description %>" class="part-desc">
+	    	</div>
 
 	    	<p>
 	    		<%= link_to "Learn more", project, class: "btn btn-primary", style:"float:right;"  %>
@@ -21,43 +24,16 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
- 	$('.icon-twitter').click(function(event) {
-    var width  = 575,
-        height = 400,
-        left   = ($(window).width()  - width)  / 2,
-        top    = ($(window).height() - height) / 2,
-        url<%=project.id%> = "http://twitter.com/home?status=Check out my new project! <%= bitly_link %>",
-        opts   = 'status=1' +
-                 ',width='  + width  +
-                 ',height=' + height +
-                 ',top='    + top    +
-                 ',left='   + left;
-
-    window.open(url<%=project.id%>, 'twitter', opts);
-
-    return false;
-  });
-
- $('.icon-facebook').click(function(event) {
-    var width  = 575,
-        height = 400,
-        left   = ($(window).width()  - width)  / 2,
-        top    = ($(window).height() - height) / 2,
-        url = "http://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost:3000/projects/+<%=project.id%>, :target => :blank",
-        opts   = 'status=1' +
-                 ',width='  + width  +
-                 ',height=' + height +
-                 ',top='    + top    +
-                 ',left='   + left;
-
-    window.open(url, 'facebook', opts);
-
-    return false;
-  });
-
+ 	
 	$('.icon-facebook').bind('ajax:complete', function(event, data){
 		
 	}); 
 
+	$('div.part-desc').haircut();
+
+	$(window).resize(function () {
+	  $('div.part-desc').stringResize();
+	});
+
 }); 
- </script>
+</script>
