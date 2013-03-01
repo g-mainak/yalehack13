@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
   	respond_to do |format|
   		if @user.save
-  			format.html { redirect_to @user, notice: 'user was successfully created.' }
+  			format.html { redirect_to @user, notice: 'user profile was successfully created.' }
   			format.json { render json: @user, status: :created, location: @user }
   		else
   			format.html { render action: "new" }
@@ -46,6 +46,7 @@ class UsersController < ApplicationController
 
   # PUT /users/1
   # PUT /users/1.json
+
   def update
   	@user = User.find(params[:id])
 
@@ -71,4 +72,18 @@ class UsersController < ApplicationController
   		format.json { head :no_content }
   	end
   end
+
+  private
+
+    def signed_in_user
+      unless signed_in?
+        store_location
+        redirect_to signin_url, notice: "Please sign in :)"
+      end
+    end
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_path) unless current_user?(@user)
+    end
 end

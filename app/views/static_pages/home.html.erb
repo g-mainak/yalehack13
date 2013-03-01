@@ -16,6 +16,7 @@
 	</div>
 </div>
 
+<% if signed_in? %>
 <div class="modal hide fade" id="myModal">
   <div class="modal-header">
     <a class="close" data-dismiss="modal" >×</a>
@@ -29,7 +30,7 @@
   </div>
   </div>
 </div>
-
+<% end %>
  <script type="text/javascript">
     $(window).load(function(){
         $('#myModal').modal('show');
