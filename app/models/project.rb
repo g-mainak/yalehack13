@@ -3,6 +3,9 @@ class Project < ActiveRecord::Base
 	attr_accessible :project_name, :founder_name, :looking_for, :description, :rating, :consider, :photo
 
 	def self.search(search)
+		puts "+++++"
+		puts search
+		puts "-----"
 		if search
 			a = ["project_name", "founder_name", "looking_for", "description"]
 			res = []
