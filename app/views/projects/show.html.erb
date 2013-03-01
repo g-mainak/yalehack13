@@ -6,20 +6,22 @@
 	</div>
 
 	<div class="span4 info">
-		<h2>Info</h2>
-		<div>
-			<h3>Founder: <%= @project.founder_name.capitalize %>
-			</h3>
-			<h3>
-				Looking For: <%= @project.looking_for.capitalize %> 
-			</h3>
-			<% if @project.consider %>
-			<h3>
-				Positions Available: <%= @project.consider %>
-			</h3>
-			<% end %>
-		</div>
-	</div>	
+		<div class="well">	
+			<h2>Info</h2>
+			<div>
+				<h3>Founder: <%= @project.founder_name.capitalize %>
+				</h3>
+				<h3>
+					Looking For: <%= @project.looking_for.capitalize %> 
+				</h3>
+				<% if @project.consider %>
+				<h3>
+					Positions Available: <%= @project.consider %>
+				</h3>
+				<% end %>
+			</div>
+		</div>	
+	</div>
 </div>
 
 

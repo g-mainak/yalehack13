@@ -22,4 +22,5 @@ class StaticPagesController < ApplicationController
 	def search
 		@projects = Project.search(params[:search])
 	end
+
 end
