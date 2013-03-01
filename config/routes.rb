@@ -10,7 +10,7 @@ Yalehack13::Application.routes.draw do
   match '/auth/failure', :to => 'sessions#failure'
   match '/comments', :to => "comments#create"
   match '/projects/comment', :to => "projects#comment"
-  match '/projects/:id/tweet', :to => 'projects#tweet'
+  match '/fbshare', :to => 'projects#fbshare'
   match "/promote" => "projects#promote"
   match '/search', :to => 'static_pages#search'
 

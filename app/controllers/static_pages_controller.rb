@@ -11,11 +11,9 @@ class StaticPagesController < ApplicationController
 				return
 			end
 		end
-		u = User.create(:netid => session[:cas_user])
-		u.save!
-		session[:user_id] = u.id
-		puts "++++++++++++++"
-		puts  u.id
+		# u = User.create(:netid => session[:cas_user])
+		# u.save!
+		# session[:user_id] = u.id
 	end
 
 

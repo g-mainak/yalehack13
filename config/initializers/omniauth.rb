@@ -1,10 +1,7 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
 	provider :facebook, AppConfig['facebook_api_key'], AppConfig['facebook_api_secret'],
 	:client_options => { :ssl => { :ca_file => "#{Rails.root}/config/ca-bundle.crt" } },
-	:display => 'popup'
-
-	provider :twitter, "5I8FbbvjZGNd6wsMqi77A", "XQPmQ9mCJqWRRN2VldGFBvxzswcqpp1JZz9ZTDXTs"
-	provider :google_oauth2, "869922471469.apps.googleusercontent.com", "xzbq2hnyF_fVtHLnBrfRIIjC"
+	:display => 'popup', :scope => 'publish_actions'
 end
 
 Twitter.configure do |config|
