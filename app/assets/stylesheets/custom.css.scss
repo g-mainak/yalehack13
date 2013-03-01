@@ -124,7 +124,7 @@ img {
 }
 
 .avatar {
-  border-radius: 10px;
+  border-radius: 20px;
   float: left;
 }
 
@@ -143,8 +143,14 @@ img {
   margin: 10px;
   padding: 10px;
   clear: both;
+  height: 300px;
+  width: 200px;
 }
 
 .debug {
   clear: both;
+}
+
+.edit-bio {
+  overflow: hidden;
 }

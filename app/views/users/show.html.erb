@@ -2,18 +2,35 @@
 	<img src="<%= asset_path(@user.avatar) %>", class="avatar", type="normal"/>
 
 	<h1 class="prof-name"><%= @user.name %></h1>
+	<a href= <%=edit_user_path(@user)%> >Edit</a>
 </div>
 
 <div class="user-info">
-	<% if @user.bio %>
-		<h2>
-			Bio: <%= @user.bio %>
-		</h2>
-	<% end %>
-	<% if @user.email %>
-		<h2>
-			Email: <%= @user.email %>
-		</h2>
-	<% end %>
+	<dl>
+		<% if @user.email %>
+			<dt style = "text-align: left;">
+				Email: 
+			</dt>
+			<dd>	
+				<%= simple_format(@user.email) %>
+			</dd>
+		<% end %>
+		<% if @user.location %>
+			<dt style = "text-align: left;">
+				Location: 
+			</dt>
+			<dd>	
+				<%= simple_format(@user.location) %>
+			</dd>
+		<% end %>
+		<% if @user.bio %>
+			<dt style="text-align: left;">
+				Bio:
+			</dt> 
+			<dd>
+				<%= simple_format(@user.bio) %>
+			</dd>
+		<% end %>
+	</dl>
 </div>
 
