@@ -1,20 +1,19 @@
 <div class="user_header">
 	<img src="<%= asset_path(@user.avatar) %>", class="avatar", type="normal"/>
 
-	<h1><%= @user.name %></h1>
+	<h1 class="prof-name"><%= @user.name %></h1>
 </div>
 
-<% if @user.authorizations.find_by_provider("facebook") %>
-		
-
-<!--	<%= image_tag("http://graph.facebook.com/"+ @user.authorizations.find_by_provider("facebook").uid+"/picture?type=large") %>-->
-<% end %>
-<br/>
-<!--<h3>NetId: <%= @user.netid %></h2> <br/>-->
-<h3>Bio:    <%= @user.bio %></h2> <br/>
-<!--<h3>Skillz:    <%= @user.skills %></h2> <br/>-->
-	<% if @user.email %>
-		<h3>Email:    <%= @user.email %></h2> <br/>
+<div class="user-info">
+	<% if @user.bio %>
+		<h2>
+			Bio: <%= @user.bio %>
+		</h2>
 	<% end %>
-
+	<% if @user.email %>
+		<h2>
+			Email: <%= @user.email %>
+		</h2>
+	<% end %>
+</div>
 

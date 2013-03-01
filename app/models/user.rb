@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
       user.remember_token = auth['credentials']['token']
       user.email = auth["info"]["email"]
       user.avatar = auth["info"]["image"]
+      user.save!
     end  
   end
 end
