@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
 	def create
 		auth_facebook = request.env["omniauth.auth"]
-		user = User.find_by_provider_and_uid(auth_facebook["provider"], auth_facebook["uid"]) || User.create_with_omniauth(auth_facebook)
+		user = User.create_with_omniauth(auth_facebook, session[:cas_user])
 		session[:user_id] = user.id
 		redirect_to user, :notice => "Signed in!"
 	end

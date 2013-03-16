@@ -18,17 +18,19 @@ class User < ActiveRecord::Base
 	  end
 	end
 
-	def self.create_with_omniauth(auth)  
-    create! do |user|  
-      user.provider = auth["provider"]  
-      user.uid = auth["uid"]  
-      user.name = auth["info"]["name"]  
-      user.remember_token = auth['credentials']['token']
-      user.email = auth["info"]["email"]
-      user.avatar = auth["info"]["image"]
-      user.location = auth["info"]["location"]
-      user.save!
-    end  
-  end
+	def self.create_with_omniauth(auth, netid)  
+		unless User.find_by_uid(auth["uid"])
+			create! do |user|  
+				user.provider = auth["provider"]  
+				user.uid = auth["uid"]  
+				user.name = auth["info"]["name"]  
+				user.remember_token = auth['credentials']['token']
+				user.email = auth["info"]["email"]
+				user.avatar = auth["info"]["image"]
+				user.netid = netid
+				user.save!
+			end  
+		end
+	end
 end
 

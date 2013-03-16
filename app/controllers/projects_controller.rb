@@ -119,14 +119,20 @@ end
   	end
   end
 
-  def tweet
-    @tuid = current_user.authorizations.find_by_provider("twitter").uid.split(",", 4)
-
-    client = Twitter::Client.new(
-      :oauth_token => "Erik's access token",
-      :oauth_token_secret => "Erik's access secret"
-    )
-    Thread.new{client.update("Tweeting from app!")}
+  def fbshare
+    @oauth = Koala::Facebook::OAuth.new
+    puts "==================="
+    puts params
+    fbid = User.find(session[:user_id]).uid # gets the user's ID 
+    access_token = User.find(session[:user_id]).remember_token 
+    # access_token = "AAACEdEose0cBAEfs7lt4YRCDKeUOjEEvLS6GDzofLEhFVUsgHGZBE6ERHvX9FtIrRUvRYEGhuSvDkUxffEPCAZAz1sLJjBLTDOwL7IVgZDZD"
+    # initialize a Graph API connection, for instance 
+    @graph = Koala::Facebook::API.new(access_token) 
+    #Fetch user profile data 
+    @graph.get_object("me")
+    #Write into user's wall or friend feed 
+    @graph.put_object("me", "feed", {:message => params[:message], :link => "http://yalestarter.herokuapp.com/"+project_path(:id => params[:id])}) 
+    redirect_to project_path(:id => params[:id])
   end
 
   def promote

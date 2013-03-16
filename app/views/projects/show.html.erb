@@ -42,46 +42,69 @@
   			</p>
   		</div>
   		<div >
-				<a href = "<%=promote_path(:id => @project.id)%>">
-					<i class="icon-star icon-2x" style="color: #FFE600;"></i>
-				</a>
-				<a href = "<%=promote_path(:id => @project.id)%>">
-					<i class="icon-facebook icon-2x"></i>
-				</a>
-				<a href = "<%=promote_path(:id => @project.id)%>">
-					<i class="icon-twitter icon-2x"></i>
-				</a>
-			</div>
+  			<a href = "<%=promote_path(:id => @project.id)%>">
+  				<i class="icon-star icon-2x" style="color: #FFE600;"></i>
+  			</a>
+  			<a href = "#" onclick="displayModal();return false;">
+  				Facebook post!
+  			</a>
+  		</div>
   		<a href="#" class="btn btn-primary" style="float:right">Apply now!</a>
   	</div>
   </div>
 
 
-<% if @project.comments.any? %>
-	<div>
-		<div>
-			<h3><%= pluralize(@comments.count, "Comment") %> for <%= @project.project_name %> </h3>
-			<ol class="comments span12">
-				<% @comments.each do |comment| %>
-					<li><%= comment.text %> by <%= comment.user.netid %></li><br />
-				<% end %>
-			</ol>
-		</div>
-		<div>
-<% end %>
-			<p>New Comment:</p>
-			<%= form_for @new, :url => {:action => :comment} do |f| %>
-				<% if flash[:error] %>
-					<p><%= flash[:error] %></p>
-				<% end %>
-				<%= f.text_area :text, :rows => 5, :cols => 80, :name => :input %><br />
-				<%= hidden_field :project, :id , :name => :id%>
-				<%= f.submit class:"btn btn-success" %>
-			<% end %>
-		</div>
-	</div>
+  <% if @project.comments.any? %>
+  <div>
+  	<div>
+  		<h3><%= pluralize(@comments.count, "Comment") %> for <%= @project.project_name %> </h3>
+  		<ol class="comments span12">
+  			<% @comments.each do |comment| %>
+  			<li><%= comment.text %> by <%= comment.user.netid %></li><br />
+  			<% end %>
+  		</ol>
+  	</div>
+  	<div>
+  		<% end %>
+  		<p>New Comment:</p>
+  		<%= form_for @new, :url => {:action => :comment} do |f| %>
+  		<% if flash[:error] %>
+  		<p><%= flash[:error] %></p>
+  		<% end %>
+  		<%= f.text_area :text, :rows => 5, :cols => 80, :name => :input %><br />
+  		<%= hidden_field :project, :id , :name => :id%>
+  		<%= f.submit class:"btn btn-success" %>
+  		<% end %>
+  	</div>
+  </div>
 
   <script>
   $('.carousel').carousel('cycle')
   </script>
 
+  <div class="modal hide fade" id="fbshare">
+  	<div class="modal-header">
+  		<a class="close" data-dismiss="modal" >×</a>
+  		<h1 style="text-align: center;">Share this project!</h1>
+
+  		<h3 style="text-align:center;">
+  			Enter the text you want to share:
+  		</h3>
+
+  		<div align="center">
+			<%= form_tag(fbshare_path(:id => @project.id), :method => "post") do %>
+				<p>
+					<%= text_area_tag 'message' %>
+					<%= submit_tag "Share on Facebook!" %>
+				</p>
+			<% end %>
+		</div>
+  	</div>
+  </div>
+
+  <script type="text/javascript">
+  function displayModal()
+  {
+  	$('#fbshare').modal('show');
+  }
+  </script>

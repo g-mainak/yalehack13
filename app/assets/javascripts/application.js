@@ -15,8 +15,8 @@
 //= require bootstrap
 //= require_tree .
 
-<script type="text/javascript">
-    $(window).load(function(){
-        $('#myModal').modal('show');
-    });
-</script>
+// <script type="text/javascript">
+//     $(window).load(function(){
+//         $('#myModal').modal('show');
+//     });
+// </script>
