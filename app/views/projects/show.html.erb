@@ -5,10 +5,11 @@
 		<img src="<%= asset_path(@project.photo) %>"/>
 	</div>
 
-	<div class="span4 info">
+	<div class="span6 info">
 		<div class="well">	
 			<h2>Info</h2>
 			<div>
+				<i class="icon-user icon-2x"></i>
 				<h3>Founder: <%= @project.founder_name.capitalize %>
 				</h3>
 				<h3>
@@ -45,10 +46,10 @@
 					<i class="icon-star icon-2x" style="color: #FFE600;"></i>
 				</a>
 				<a href = "<%=promote_path(:id => @project.id)%>">
-					<i class="icon-star icon-2x" style="color: #FFE600;"></i>
+					<i class="icon-facebook icon-2x"></i>
 				</a>
 				<a href = "<%=promote_path(:id => @project.id)%>">
-					<i class="icon-star icon-2x" style="color: #FFE600;"></i>
+					<i class="icon-twitter icon-2x"></i>
 				</a>
 			</div>
   		<a href="#" class="btn btn-primary" style="float:right">Apply now!</a>
