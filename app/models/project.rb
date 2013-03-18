@@ -1,6 +1,8 @@
 class Project < ActiveRecord::Base
 	has_many :comments
-	attr_accessible :project_name, :founder_name, :looking_for, :description, :rating, :consider, :photo
+	attr_accessible :project_name, :founder_name, :looking_for, 
+	:description, :rating, :consider, :photo, :tag_list
+	acts_as_taggable
 
 	def self.search(search)
 		puts "+++++"

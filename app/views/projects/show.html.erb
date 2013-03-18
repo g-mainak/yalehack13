@@ -21,6 +21,9 @@
 				</h3>
 				<% end %>
 			</div>
+      <h3>
+        Tags: <%= @project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+      </h3>
 		</div>	
 	</div>
 </div>
@@ -46,7 +49,7 @@
   				<i class="icon-star icon-2x" style="color: #FFE600;"></i>
   			</a>
   			<a href = "#" onclick="displayModal();return false;">
-  				Facebook post!
+  				<i class="icon-facebook icon-2x"></i>
   			</a>
   		</div>
   		<a href="#" class="btn btn-primary" style="float:right">Apply now!</a>
@@ -60,22 +63,22 @@
   		<h3><%= pluralize(@comments.count, "Comment") %> for <%= @project.project_name %> </h3>
   		<ol class="comments span12">
   			<% @comments.each do |comment| %>
-  			<li><%= comment.text %> by <%= comment.user.netid %></li><br />
+  			 <li><%= comment.text %> by <%= comment.user.netid %></li><br />
   			<% end %>
   		</ol>
   	</div>
-  	<div>
-  		<% end %>
-  		<p>New Comment:</p>
-  		<%= form_for @new, :url => {:action => :comment} do |f| %>
-  		<% if flash[:error] %>
-  		<p><%= flash[:error] %></p>
-  		<% end %>
-  		<%= f.text_area :text, :rows => 5, :cols => 80, :name => :input %><br />
-  		<%= hidden_field :project, :id , :name => :id%>
-  		<%= f.submit class:"btn btn-success" %>
-  		<% end %>
-  	</div>
+  <% end %>
+  <div>		
+  	<p>New Comment:</p>
+  	<%= form_for @new, :url => {:action => :comment} do |f| %>
+  	<% if flash[:error] %>
+		  <p><%= flash[:error] %></p>
+  	<% end %>
+  	<%= f.text_area :text, :rows => 5, :cols => 80, :name => :input %><br />
+  	<%= hidden_field :project, :id , :name => :id%>
+  	<%= f.submit class:"btn btn-success" %>
+  	<% end %>
+  </div>
   </div>
 
   <script>
@@ -95,7 +98,7 @@
 			<%= form_tag(fbshare_path(:id => @project.id), :method => "post") do %>
 				<p>
 					<%= text_area_tag 'message' %>
-					<%= submit_tag "Share on Facebook!" %>
+					<%= submit_tag "Share on Facebook!", class:"btn btn-primary" %>
 				</p>
 			<% end %>
 		</div>

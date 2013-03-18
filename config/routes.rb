@@ -3,6 +3,8 @@ Yalehack13::Application.routes.draw do
   resources :projects
   resources :comments
 
+
+  get 'tags/:tag', to: 'articles#index', as: :tag
   get '/login', :to => 'sessions#new', :as => :login
   put "project/:project_id/" => "project#incHelpful"
   
