@@ -8,9 +8,9 @@
           <ul class="thumbnails">
             <% @projects.each do |project| %>
             <li class="">
-              <a href="#" class="thumbnail">
+              <%= link_to project do %>
                 <img src= "<%= asset_path(project.photo) %> " alt="project pic" style="width: 300px; height: 200px"/>
-              </a>
+              <% end %>
 
               <div class="caption">
                 <h3><%=link_to project.project_name , project %></h3>
