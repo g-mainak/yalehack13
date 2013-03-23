@@ -31,6 +31,14 @@
 				<%= simple_format(@user.bio) %>
 			</dd>
 		<% end %>
+		<% if @user.tag_list %>
+			<dt style="text-align: left;">
+				Interests:
+			</dt> 
+			<dd>
+				<%= raw @user.tag_list.map { |t| link_to t, interest_path(t) }.join(', ') %>
+			</dd>
+		<% end %>
 	</dl>
 </div>
 

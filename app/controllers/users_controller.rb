@@ -3,8 +3,11 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-  	@users = User.all
-
+    if params[:interest]
+      @users = User.tagged_with(params[:interest])
+    else
+      @users = User.all
+    end
   	respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }

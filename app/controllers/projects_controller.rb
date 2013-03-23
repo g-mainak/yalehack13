@@ -2,8 +2,11 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-  	@projects = Project.all
-
+    if params[:tag]
+      @projects = Project.tagged_with(params[:tag])
+    else
+      @projects = Project.all
+    end
   	respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @projects }

@@ -11,9 +11,9 @@
     <i class="icon-tags icon-2x" style="float: left"></i>
     <h3> Tags </h3>
     <ul>
-      <% @tags.each do |tag| %>
+      <% Project.tag_counts.each do |tag| %>
         <li>
-          <%= link_to tag.name, "#" %>
+          <%= link_to tag.name, tag_path(tag.name) %>(<%= tag.count %>)
         </li>
       <% end %>
   </ul>

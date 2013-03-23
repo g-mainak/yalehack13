@@ -22,7 +22,7 @@
 				<% end %>
 			</div>
       <h3>
-        Tags: <%= raw @project.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
+        Tags: <%= raw @project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
       </h3>
 		</div>	
 	</div>

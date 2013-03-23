@@ -3,7 +3,6 @@ class StaticPagesController < ApplicationController
 	def home
 		@projects = Project.all(:limit => 3, :order => "rating DESC, created_at DESC")
 		u = User.all
-		@tags = Tag.all
 		puts "=============="
 		puts u
 		for i in u
