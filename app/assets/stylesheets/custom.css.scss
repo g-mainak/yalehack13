@@ -64,9 +64,14 @@ p {
 	margin: 20px;
 }
 
+/*
 i:hover {
 	color: #0044cc;
 	text-decoration: none;
+}*/
+
+ul {
+  list-style-type: none;
 }
 
 .projects {
@@ -157,4 +162,16 @@ img {
 
 #tags {
   float: right;
+} 
+
+/* icons that appear to the left of 
+   what they correspond to */
+.icon-label {
+  float: left;
+}
+
+.project-desc {
+  padding: 2px;
+  margin: 12px;
+  text-align: left;
 }

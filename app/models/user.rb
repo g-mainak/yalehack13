@@ -1,10 +1,7 @@
 class User < ActiveRecord::Base
-
 	has_many :comments
-	attr_accessible :name, :netid, :bio, :skills, :email, :uid
-	
-
 	has_many :authorizations
+	attr_accessible :name, :netid, :bio, :skills, :email, :uid
 
 	def add_provider(auth_hash)
 	  # Check if the provider already exists, so we don't add it twice
