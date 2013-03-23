@@ -10,8 +10,8 @@ class ProjectsController < ApplicationController
   	respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @projects }
+    end
   end
-end
 
   def incHelpful
     unless params[:nonce] == session[:nonce][params[:id]]
@@ -35,8 +35,8 @@ end
   	respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @project }
+    end
   end
-end
 
   # GET /projects/new
   # GET /projects/new.json
@@ -46,8 +46,8 @@ end
   	respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @project }
+    end
   end
-end
 
   # GET /projects/1/edit
   def edit

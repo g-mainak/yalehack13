@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
 	has_many :comments
 	attr_accessible :name, :netid, :bio, :skills, :email, :uid, :tag_list
 	
