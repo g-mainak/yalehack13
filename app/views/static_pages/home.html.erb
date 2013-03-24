@@ -8,27 +8,29 @@
 
 <div class="container-fluid", id="tags">
   <div class="row-fluid">
-    <i class="icon-tags icon-2x icon-label"></i>
-    <h3> Tags </h3>
+    <h3>
+    <i class="icon-tags icon-label"></i>
+     Tags </h3>
     <ul>
       <% Project.tag_counts.each do |tag| %>
         <li>
           <%= link_to tag.name, tag_path(tag.name) %>(<%= tag.count %>)
         </li>
       <% end %>
-  </ul>
+    </ul>
   </div>
 </div>
 
 <div class="container-fluid">
 	<div class="row-fluid">
-		<h2 style="text-align:left">Popular Projects</h2>
+		<h2 style="text-align:left">
+      Popular Projects
+    </h2>
 		<div class="projects span12">
 			<%= render @projects %>
 		</div>
 	</div>
 </div>
-
 
 <!--
 <% if signed_in? %>

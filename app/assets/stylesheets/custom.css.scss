@@ -112,7 +112,16 @@ img {
   display: inline-block;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 150px;
+  height: 120px;
+  /*width: 200px;*/
+  padding: 10px;
+}
+
+.caption {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 200px;
   /*width: 200px;*/
   padding: 10px;
 }

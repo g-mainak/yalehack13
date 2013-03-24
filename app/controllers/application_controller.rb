@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_filter :signed_in_user#, :only => [:index, :show]
-
+  #skip_before_filter :signed_in_user, :only => [:index, :show, :home, :signin]
   protect_from_forgery
   include SessionsHelper
   helper_method :current_user
@@ -8,8 +7,8 @@ class ApplicationController < ActionController::Base
   # before_filter CASClient::Frameworks::Rails::Filter
   
   def current_user
-	  	@current_user ||= User.find(session[:user_id]) if session[:user_id]
-	  	rescue ActiveRecord::RecordNotFound # fixed lost record
+	  @current_user ||= User.find(session[:user_id]) if session[:user_id]
+	  rescue ActiveRecord::RecordNotFound # fixed lost record
 	end
 
 	def promote

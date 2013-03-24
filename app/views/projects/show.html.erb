@@ -39,15 +39,7 @@
 	</div>
 </div>
 
-
-
-
-<!-- Carousel nav -->
-  <!--
-  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>-->
-
-  <h2 id="desc-title">Description</h2>
+<h2 id="desc-title">Description</h2>
   <div class="row-fluid">
   	<div class="span4">
   		<div class="desc">
@@ -74,7 +66,10 @@
   		<h3><%= pluralize(@comments.count, "Comment") %> for <%= @project.project_name %> </h3>
   		<ol class="comments span12">
   			<% @comments.each do |comment| %>
-  			 <li><%= comment.text %> by <%= comment.user.netid %></li><br />
+  			 <li>
+          <%= comment.text %>
+        </li>
+        <br />
   			<% end %>
   		</ol>
   	</div>

@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   skip_before_filter :signed_in_user, :only => [:index, :show]
-
+  
   def index
     if params[:tag]
       @projects = Project.tagged_with(params[:tag])

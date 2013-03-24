@@ -13,9 +13,13 @@
               <% end %>
 
               <div class="caption">
-                <h3><%=link_to project.project_name , project %></h3>
-                <p> <%= project.description %> </p>
-
+                <h3>
+                  <%=link_to project.project_name , project %>
+                </h3>
+                <p> 
+                  <%= project.description %> 
+                </p>
+              </div>
                 <p>
                   <%= link_to "Learn more", project, class: "btn btn-primary", style:"float:right;"  %>
                 </p>

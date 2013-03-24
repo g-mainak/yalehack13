@@ -13,29 +13,29 @@
       </div>
       <% end %>
 
-<div>
-  <%= f.label :project_name %>
-  <%= f.text_field :project_name %>
-  <br/>
-  <%= f.label :founder_name %>
-  <%= f.text_field :founder_name %>
-  <br/>
-  <%= f.label :tag_list, "Tags (separated by commas)" %>
-  <%= f.text_field :tag_list %>
-  <br/>
-  <%= f.label :Photo %>
-  <input id="project_photo" name="photo" type="file" />
-  <br/>
-  <%= f.label :looking_for %>
-  <%= f.text_field :looking_for, :placeholder => "programmer, consummate lover etc." %>
-  <br/>
-  <%= f.label :description%>
-  <%= f.text_area :description %>
-</div>
-
+      <div>
+        <%= f.label :project_name %>
+        <%= f.text_field :project_name %>
+        <br/>
+        <%= f.label :founder_name %>
+        <%= f.text_field :founder_name %>
+        <br/>
+        <%= f.label :tag_list, "Tags (separated by commas)" %>
+        <%= f.text_field :tag_list %>
+        <br/>
+        <%= f.label :Photo %>
+        <input id="project_photo" name="photo" type="file" />
+        <br/>
+        <%= f.label :looking_for %>
+        <%= f.text_field :looking_for, :placeholder => "programmer, cofounder, etc." %>
+        <br/>
+        <%= f.label :description%>
+        <%= f.text_area :description %>
+      </div>
       <div class="actions">
         <%= f.submit class:"btn btn-primary" %>
       </div>
+    <% end %>
   </div>
 </div>
-<% end %>
+    
