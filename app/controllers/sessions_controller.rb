@@ -1,11 +1,13 @@
 class SessionsController < ApplicationController
-	def new
-		redirect_to '/auth/:provider'
-	end
+	skip_before_filter :signed_in_user
+
+	 def new
+	# 	redirect_to '/auth/facebook'
+	 end
 
 	def create
 		auth_facebook = request.env["omniauth.auth"]
-		user = User.create_with_omniauth(auth_facebook, session[:cas_user])
+		user = User.find_by_provider_and_uid(auth_facebook["provider"], auth_facebook["uid"]) || User.create_with_omniauth(auth_facebook)
 		session[:user_id] = user.id # CHANGE THIS!
 		redirect_to user, :notice => "Signed in!"
 	end

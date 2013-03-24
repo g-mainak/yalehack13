@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 	  end
 	end
 
-	def self.create_with_omniauth(auth, netid)  
+	def self.create_with_omniauth(auth)  
 		unless User.find_by_uid(auth["uid"])
 			create! do |user|  
 				user.provider = auth["provider"]  
@@ -27,7 +27,6 @@ class User < ActiveRecord::Base
 				user.remember_token = auth['credentials']['token']
 				user.email = auth["info"]["email"]
 				user.avatar = auth["info"]["image"]
-				user.netid = netid
 				user.save!
 			end  
 		end

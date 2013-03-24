@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_filter :signed_in_user#, :only => [:index, :show]
+
   protect_from_forgery
   include SessionsHelper
   helper_method :current_user
@@ -12,5 +14,9 @@ class ApplicationController < ActionController::Base
 
 	def promote
     Project.increment_counter(:rating, params[:id])
+  end
+
+  def signed_in_user
+    redirect_to signin_url, notice: "Please sign in." unless signed_in?
   end
 end

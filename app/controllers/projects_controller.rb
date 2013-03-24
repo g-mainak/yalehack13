@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
-  # GET /projects
-  # GET /projects.json
+  skip_before_filter :signed_in_user, :only => [:index, :show]
+
   def index
     if params[:tag]
       @projects = Project.tagged_with(params[:tag])
