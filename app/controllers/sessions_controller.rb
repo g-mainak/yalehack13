@@ -1,9 +1,8 @@
 class SessionsController < ApplicationController
 	skip_before_filter :signed_in_user
 
-	 def new
-	# 	redirect_to '/auth/facebook'
-	 end
+	def new
+	end
 
 	def create
 		auth_facebook = request.env["omniauth.auth"]
@@ -42,12 +41,11 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-		reset_session
-		redirect_to root_url, :notice => 'Signed out!'
+		session[:user_id] = nil
+		redirect_to root_url, :notice => "Signed out!"
 	end
 
 	def promote
     Project.increment_counter(:promote, params[:id])
   end
-
 end

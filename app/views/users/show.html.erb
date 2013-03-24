@@ -31,7 +31,7 @@
 				<%= simple_format(@user.bio) %>
 			</dd>
 		<% end %>
-		<% if @user.tag_list %>
+		<% if !@user.tag_list.empty? %>
 			<dt style="text-align: left;">
 				Interests:
 			</dt> 

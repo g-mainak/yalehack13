@@ -7,6 +7,7 @@ Yalehack13::Application.routes.draw do
   get 'interests/:interest', to: 'users#index', as: :interest
   get '/login', :to => 'sessions#new', :as => :login
   put "project/:project_id/" => "project#incHelpful"
+  
   match '/comments', :to => "comments#create"
   match '/projects/comment', :to => "projects#comment"
   match '/fbshare', :to => 'projects#fbshare'
@@ -19,6 +20,7 @@ Yalehack13::Application.routes.draw do
   match '/auth/:provider/callback' => 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match "/signout" => "sessions#destroy", :as => :signout
+  match '/auth/failure', :to => 'sessions#failure'
 
   root :to => 'static_pages#home'
 end
