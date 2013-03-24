@@ -1,9 +1,9 @@
 <% provide(:title, "Sign in") %>
 <h1>Sign in</h1>
 
-<div class="row">
-	<div class="span6 offset3">
-		<%= link_to "Sign in with Facebook!", "/auth/facebook",class: "btn btn-large btn-primary", id:"sign_in" %>
-		<p>New user? <%= link_to "Sign up now!", signup_path %></p>
-	</div>
+<div class="sign_in">
+	<p>
+		Sorry about that, but you're gonna need to sign in first!
+	</p>
+	<%= link_to "Sign in with Facebook!", "/auth/facebook",class: "btn btn-large btn-primary", id: "sign_in" %>
 </div>
