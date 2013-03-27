@@ -20,6 +20,10 @@
         <%= f.label :founder_name %>
         <%= f.text_field :founder_name %>
         <br/>
+        <%= @project.errors.get(:contact) %>
+        <%= f.label :contact, "Contact E-mail" %>
+        <%= f.text_field :contact %>
+        <br/>
         <%= f.label :tag_list, "Tags (separated by commas)" %>
         <%= f.text_field :tag_list %>
         <br/>

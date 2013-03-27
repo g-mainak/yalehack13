@@ -3,8 +3,12 @@ class Project < ActiveRecord::Base
 	# has_many :taggings
  	#  has_many :tags, through: :taggings
 	attr_accessible :project_name, :founder_name, :looking_for, 
-	:description, :rating, :consider, :photo, :tag_list
+	:description, :rating, :consider, :photo, :tag_list, :contact
 	acts_as_taggable
+
+	validates_format_of :contact,
+                    :with => /[-!#$&'*+\/=?`{|}~.\w]+@[a-zA-Z0-9]([-a-zA-Z0-9]*[a-zA-Z0-9])*(\.[a-zA-Z0-9]([-a-zA-Z0-9]*[a-zA-Z0-9])*)+$/,
+                    :message => 'invalid e-mail'
 
 	def self.search(search)
 		puts "+++++"
@@ -22,7 +26,7 @@ class Project < ActiveRecord::Base
 		end
 	end
 
-	# def self.tagged_with(name)
+ # def self.tagged_with(name)
  #    Tag.find_by_name!(name).articles
  #  end
 

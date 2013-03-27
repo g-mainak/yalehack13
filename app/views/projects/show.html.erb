@@ -55,7 +55,7 @@
   				<i class="icon-facebook icon-2x"></i>
   			</a>
   		</div>
-  		<a href="#" class="btn btn-primary" style="float:right">Apply now!</a>
+  		<a href="mailto:<%= @project.contact %>" class="btn btn-primary" style="float:right">Apply now!</a>
   	</div>
   </div>
 
@@ -81,8 +81,8 @@
 		  <p><%= flash[:error] %></p>
   	<% end %>
   	<%= f.text_area :text, :rows => 5, :cols => 80, :name => :input %><br />
-  	<%= hidden_field :project, :id , :name => :id%>
-  	<%= f.submit class:"btn btn-success" %>
+  	<%= hidden_field :project, :id , :name => :id%> 
+    	<%= f.submit class:"btn btn-success" %>
   	<% end %>
   </div>
   </div>
